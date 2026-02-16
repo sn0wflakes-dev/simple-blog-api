@@ -10,7 +10,7 @@ public class Blog {
     private final BlogId blogId;
     private final String authorName;
     private final Set<Tag> tags;
-    private final String title;
+    private final BlogTitle title;
     private final Slug slug;
     private final BlogContent content;
     private final BlogStatus status;
@@ -21,7 +21,7 @@ public class Blog {
             BlogId blogId,
             String author,
             Set<Tag> tags,
-            String title,
+            BlogTitle title,
             Slug slug,
             BlogContent content,
             BlogStatus status) {
@@ -46,7 +46,7 @@ public class Blog {
                 BlogId.generate(),
                 authorName,
                 tags,
-                title,
+                BlogTitle.of(title),
                 Slug.of(slug),
                 BlogContent.of(blogContent),
                 BlogStatus.DRAFT
@@ -149,6 +149,38 @@ public class Blog {
 
         public static Slug of(String value) {
             return new Slug(value);
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
+    public static class BlogTitle{
+        private final static int MIN_TITLE_LEN = 2;
+        private final static int MAX_TITLE_LEN = 100;
+
+        private final String value;
+
+        private BlogTitle(String value) {
+            if (value == null || value.isBlank()) {
+                throw new IllegalArgumentException("Blog title can't be null or empty");
+            }
+
+            String trimmedValue = value.trim();
+
+            if (trimmedValue.length() < MIN_TITLE_LEN || trimmedValue.length() > MAX_TITLE_LEN) {
+                throw new IllegalArgumentException(
+                        "Title must be at least" + MIN_TITLE_LEN +
+                        "character and can't more than " + MAX_TITLE_LEN + "character");
+            }
+
+            this.value = trimmedValue;
+
+        }
+
+        public static BlogTitle of(String value) {
+            return new BlogTitle(value);
         }
 
         public String getValue() {
