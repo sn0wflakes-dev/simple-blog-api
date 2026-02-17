@@ -33,4 +33,12 @@ public class Author {
         this.authorName = AuthorName.of(authorName);
         this.updatedAt = OffsetDateTime.now();
     }
+
+    public AuthorId getAuthorId() {
+        return authorId;
+    }
+
+    public AuthorName getAuthorName() {
+        return authorName;
+    }
 }
