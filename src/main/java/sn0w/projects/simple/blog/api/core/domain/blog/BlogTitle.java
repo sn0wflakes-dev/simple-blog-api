@@ -1,4 +1,4 @@
-package sn0w.projects.simple.blog.api.core.domain.Blog;
+package sn0w.projects.simple.blog.api.core.domain.blog;
 
 public class BlogTitle {
     private final static int MIN_TITLE_LEN = 2;

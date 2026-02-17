@@ -1,4 +1,4 @@
-package sn0w.projects.simple.blog.api.core.domain.Author;
+package sn0w.projects.simple.blog.api.core.domain.author;
 
 public class AuthorName {
     private static final int MIN_NAME_LEN = 3;

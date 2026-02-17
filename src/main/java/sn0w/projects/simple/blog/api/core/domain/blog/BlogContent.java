@@ -1,4 +1,4 @@
-package sn0w.projects.simple.blog.api.core.domain.Blog;
+package sn0w.projects.simple.blog.api.core.domain.blog;
 
 public class BlogContent {
     private final static int MIN_CONTENT_LEN = 2;

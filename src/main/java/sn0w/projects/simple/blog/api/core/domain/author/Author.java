@@ -1,4 +1,4 @@
-package sn0w.projects.simple.blog.api.core.domain.Author;
+package sn0w.projects.simple.blog.api.core.domain.author;
 
 import lombok.Getter;
 
