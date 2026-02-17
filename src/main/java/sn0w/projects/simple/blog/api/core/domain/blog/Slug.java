@@ -15,7 +15,7 @@ public class Slug {
             throw new IllegalArgumentException("Slug can't be null or empty");
         }
 
-        if (SLUG_REGEXP.matcher(value).matches()) {
+        if (!SLUG_REGEXP.matcher(value).matches()) {
             throw new IllegalArgumentException("Slug contains only alphabet and hyphen");
         }
 
@@ -27,7 +27,9 @@ public class Slug {
                             "character and can't more than " + MAX_SLUG_LEN + "character");
         }
 
-        this.value = trimmedValue;
+        this.value = trimmedValue.toLowerCase()
+                .replaceAll("[^a-z0-9]+", "-")
+                .replaceAll("^-|-$", "");
     }
 
     public static Slug of(String value) {
