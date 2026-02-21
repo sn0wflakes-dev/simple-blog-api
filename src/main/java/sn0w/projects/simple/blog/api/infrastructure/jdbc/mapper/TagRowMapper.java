@@ -1,21 +1,19 @@
 package sn0w.projects.simple.blog.api.infrastructure.jdbc.mapper;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
-import sn0w.projects.simple.blog.api.core.domain.author.Author;
+import sn0w.projects.simple.blog.api.core.domain.tag.Tag;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Component
-@Slf4j
-public class AuthorRowMapper implements RowMapper<Author> {
+public class TagRowMapper implements RowMapper<Tag> {
     @Override
-    public Author mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return Author.of(
+    public Tag mapRow(ResultSet rs, int rowNum) throws SQLException {
+        return Tag.of(
                 rs.getString("id"),
-                rs.getString("name")
+                rs.getString("tag")
         );
     }
 }

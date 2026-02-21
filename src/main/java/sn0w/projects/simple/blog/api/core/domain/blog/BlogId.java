@@ -13,4 +13,13 @@ public record BlogId(String blogId) {
     public static BlogId generate() {
         return new BlogId(UUID.randomUUID().toString());
     }
+
+    public static BlogId of(String value) {
+        return new BlogId(value);
+    }
+
+    @Override
+    public String blogId() {
+        return blogId;
+    }
 }

@@ -16,6 +16,10 @@ public class AuthorId {
         return new AuthorId(UUID.randomUUID().toString());
     }
 
+    public static AuthorId of(String value) {
+        return new AuthorId(value);
+    }
+
     public String getValue() {
         return value;
     }

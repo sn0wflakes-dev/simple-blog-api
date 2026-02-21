@@ -29,6 +29,13 @@ public class Author {
         );
     }
 
+    public static Author of(String id, String name) {
+        return new Author(
+                AuthorId.of(id),
+                AuthorName.of(name)
+        );
+    }
+
     public void updateAuthor(String authorName) {
         this.authorName = AuthorName.of(authorName);
         this.updatedAt = OffsetDateTime.now();
